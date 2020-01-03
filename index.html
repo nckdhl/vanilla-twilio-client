@@ -1,75 +1,61 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Twilio Client Quickstart</title>
-    <script
-      type="text/javascript"
-      src="//media.twiliocdn.com/sdk/js/client/v1.7/twilio.min.js"
-    ></script>
+    <title>Login</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="/css/globalstyles.css"
-    />
+    <link rel="stylesheet" href="css/globalstyles.css" />
+    <link rel="stylesheet" href="css/login.css" />
   </head>
 
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-light bg-light">
-      <span class="navbar-brand mb-0 h1">TwilioClient</span>
-    </nav>
-
-    <!-- Information -->
-    <div id="info">
-      <div id="client-name"></div>
-      <div id="output-selection">
-        <label>Ringtone Devices</label>
-        <select id="ringtone-devices" multiple></select>
-        <label>Speaker Devices</label>
-        <select id="speaker-devices" multiple></select
-        ><br />
-        <a id="get-devices">Seeing unknown devices?</a>
-      </div>
-    </div>
-
-    <!-- Call Input and Button -->
-    <div class="container mt-3">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button 
-            class="btn btn-outline-secondary" 
-            type="button" 
-            id="call-btn">
-            Call
-          </button>
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            id="hangup-btn"
-          >
-            Hangup
-          </button>
-        </div>
-        <input type="text" class="form-control" placeholder="" id="number-input" />
-      </div>
-    </div>
-
-    <!-- Log Messages Container -->
-    <div class="container" id="log"></div>
-
-    <!-- Volume Indicators  -->
-    <div class="container" id="volume-indicators">
-      <label>Mic Volume</label>
-      <div id="input-volume"></div>
-      <br /><br />
-      <label>Speaker Volume</label>
-      <div id="output-volume"></div>
-    </div>
+    <form class="form-signin rounded-lg text-center bg-light p-4 text-dark">
+      <h2 class="h4 mb-3 font-weight-normal">Vanilla</h2>
+      <h2 class="h5 mb-3 font-weight-normal">Please sign in</h2>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input
+        type="email"
+        id="inputEmail"
+        class="form-control"
+        placeholder="Email address"
+        required
+        autofocus
+      />
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input
+        type="password"
+        id="inputPassword"
+        class="form-control"
+        placeholder="Password"
+        required
+      />
+      <button class="btn btn-outline-dark btn-block" type="submit">
+        Sign in
+      </button>
+    </form>
+    <a
+      style='background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px'
+      href="https://unsplash.com/@eduardoequis?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Download free do whatever you want high-resolution photos from Eduardo Sánchez"
+      ><span style="display:inline-block;padding:2px 3px"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+          viewBox="0 0 32 32"
+        >
+          <title>unsplash-logo</title>
+          <path
+            d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"
+          ></path></svg></span
+      ><span style="display:inline-block;padding:2px 3px"
+        >Eduardo Sánchez</span
+      ></a>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -86,6 +72,6 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/index.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>
