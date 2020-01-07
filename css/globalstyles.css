@@ -25,7 +25,11 @@
     display: none;
 }
 
+#call-control-container {
+    display: none;
+}
 #log {
+    display: none;
     border: 1px solid #686865;
     width: 35%;
     border-radius: 1em 0em 0em 1em;

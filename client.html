@@ -12,10 +12,7 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="/css/globalstyles.css"
-    />
+    <link rel="stylesheet" href="/css/globalstyles.css" />
   </head>
 
   <body>
@@ -38,16 +35,17 @@
     </div>
 
     <!-- Ready button -->
-    <button class="btn m-3 btn-outline-secondary" id="readyButton">Ready!</button>
+    <div class="container text-center">
+      <button class="btn m-3 btn-block btn-outline-secondary" id="readyButton">
+        Press to initialize the dialer
+      </button>
+    </div>
 
     <!-- Call Input and Button -->
-    <div class="container mt-3">
+    <div class="container text-center w-50 mt-4" id="call-control-container">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <button 
-            class="btn btn-outline-secondary" 
-            type="button" 
-            id="call-btn">
+          <button class="btn btn-outline-secondary" type="button" id="call-btn">
             Call
           </button>
           <button
@@ -58,7 +56,12 @@
             Hangup
           </button>
         </div>
-        <input type="text" class="form-control" placeholder="" id="number-input" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter number to call - i.e. +12896893069"
+          id="number-input"
+        />
       </div>
     </div>
 
@@ -72,6 +75,40 @@
       <br /><br />
       <label>Speaker Volume</label>
       <div id="output-volume"></div>
+    </div>
+
+    <!-- Incoming Call Modal -->
+    <div
+      class="modal fade"
+      id="incoming-call-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Incoming call...</h5>
+          </div>
+          <div class="modal-body">
+            You're receiving an incoming call from...
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="answer-button"
+              class="btn btn-success"
+              data-dismiss="modal"
+            >
+              Answer
+            </button>
+            <button type="button" id="dismiss-button" class="btn btn-danger">
+              Dismiss
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
