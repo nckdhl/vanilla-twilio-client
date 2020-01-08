@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
             // AJAX call to send login credentials to database
             // returns true and redirects to main.php if the login was successful and
             // false if it was not, which then causes validity popup on input field
-            fetch("http://a6f77e9d.ngrok.io/auth/login", {
+            fetch("http://828f5597.ngrok.io/auth/login", {
                     method: 'POST',
                     credentials: 'include',
                     headers: {

@@ -22,15 +22,15 @@
     </nav>
 
     <!-- Information -->
-    <div id="info">
+    <div class="container w-50" id="info">
       <div id="client-name"></div>
       <div id="output-selection">
         <label>Ringtone Devices</label>
-        <select id="ringtone-devices" multiple></select>
+        <select id="ringtone-devices" class="form-control" multiple></select>
         <label>Speaker Devices</label>
-        <select id="speaker-devices" multiple></select
+        <select id="speaker-devices" class="form-control" multiple></select
         ><br />
-        <a id="get-devices">Seeing unknown devices?</a>
+        <a id="get-devices">Not seeing all your devices?</a>
       </div>
     </div>
 
@@ -65,17 +65,17 @@
       </div>
     </div>
 
-    <!-- Log Messages Container -->
-    <div class="container" id="log"></div>
+    <!-- Volume Indicators -->
 
-    <!-- Volume Indicators  -->
-    <div class="container" id="volume-indicators">
+    <div class="container m-2" id="volume-indicators">
       <label>Mic Volume</label>
-      <div id="input-volume"></div>
-      <br /><br />
+      <div id="input-volume"></div><br/><br/>
       <label>Speaker Volume</label>
       <div id="output-volume"></div>
     </div>
+
+    <!-- Log Messages Container -->
+    <div class="container" id="log"></div>
 
     <!-- Incoming Call Modal -->
     <div
