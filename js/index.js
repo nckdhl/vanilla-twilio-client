@@ -22,11 +22,33 @@ window.addEventListener("load", function() {
   let calling = true;
   let twilioDevice;
 
-  const enumDevices = async () => {
-    return await navigator.mediaDevices.enumerateDevices();
-  };
+  fetch("http://828f5597.ngrok.io/auth/validation", {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      authToken: localStorage.getItem("authToken")
+    })
+  })
+    .then(response => {
+      if (response.status === 200) {
+        console.log(response);
+        log("Login validated");
+      } else {
+        console.log(response);
+        alert("You're not logged in");
+        log(
+          "You're not logged in. <a href='/'>click here</a> to return to login"
+        );
+      }
+      response.json();
+    })
+    .then(function(data) {
+      console.log(data);
+    });
 
-  console.log(enumDevices().then(value => console.log(value)));
   /**
    * Adds a message to the log container in <p> tags
    * @param {Message to be added to log} message
@@ -112,21 +134,20 @@ window.addEventListener("load", function() {
     callControlContainer.style.display = "inherit";
     logger.style.display = "inherit";
 
-    log("Requesting Capability Token... ");
-
     const url = "http://828f5597.ngrok.io/twilio/token";
     const params = JSON.stringify({
       authToken: localStorage.getItem("authToken")
     });
     console.log(params);
 
+    log("Requesting Capability Token... ");
     try {
       fetch(url, {
         method: "POST",
         credentials: "include",
         headers: {
           "Content-Type": "application/json"
-        }, // parameter format
+        },
         body: params
       })
         .then(response => {
@@ -137,7 +158,6 @@ window.addEventListener("load", function() {
             log(
               "Error: Could not retrieve valid token from server. Try refreshing."
             );
-            //throw new Error('Issue retrieving token from server.')
           }
         })
         .then(success);
@@ -163,19 +183,9 @@ window.addEventListener("load", function() {
           document.getElementById("output-selection").style.display = "block";
         }
 
-        console.log(twilioDevice.audio.ringtoneDevices.get());
-
-        // Deprecated - Setup Twilio device
-        //Twilio.Device.setup(data.token);
-
         twilioDevice.on("ready", device => {
           log("Twilio VOIP client online. Ready for calls!");
         });
-
-        // Deprecated
-        // Twilio.Device.ready(function(device) {
-        //   log("Twilio.Device Ready!");
-        // });
 
         twilioDevice.on("error", error => {
           log("Error: " + error.message + " , Code: " + error.code);
@@ -196,25 +206,11 @@ window.addEventListener("load", function() {
           bindVolumeIndicators(connection);
         });
 
-        // Deprecated
-        // Twilio.Device.connect(function(conn) {
-        //   log("Successfully established call!");
-        //   callButton.style.display = "none";
-        //   hangupButton.style.display = "initial";
-        // });
-
         twilioDevice.on("disconnect", connection => {
           log("Call ended.");
           toggleHangUpButton();
           volumeIndicators.style.display = "none";
         });
-
-        // Deprecated
-        // Twilio.Device.disconnect(function(conn) {
-        //   log("Call ended.");
-        //   hangupButton.style.display = "none";
-        //   callButton.style.display = "initial";
-        // });
 
         twilioDevice.on("incoming", function(conn) {
           console.log(conn);
@@ -222,17 +218,6 @@ window.addEventListener("load", function() {
           setTimeout(() => {
             $("#incoming-call-modal").modal("toggle");
           }, 500);
-
-          // function answer(connection, event) {
-          //   connection.accept();
-          // }
-
-          // function reject(connection, event) {
-          //   connection.reject();
-          //   $("#incoming-call-modal").modal("toggle");
-          //   log("Call ended.");
-          //   //toggleHangUpButton();
-          // }
 
           document.querySelector("#answer-button").addEventListener(
             "click",
