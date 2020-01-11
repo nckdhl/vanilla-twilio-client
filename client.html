@@ -37,7 +37,6 @@
     <!-- Navbar -->
     <nav class="navbar navbar-light p-0 bg-dark">
       <span class="navbar-brand brand ml-3 mb-0 text-light h1">Vanilla</span>
-      <div class="text-light" id="client-name"></div>
       <div class="container text-light w-50" id="info">
         <div id="output-selection">
           <label>Ringtone Devices</label>
@@ -47,6 +46,7 @@
           <a id="get-devices">Update devices</a>
         </div>
       </div>
+      <div class="text-light" id="client-name"></div>
     </nav>
 
     <!-- Interface Container -->
@@ -80,12 +80,19 @@
 
       <!-- Volume Indicators -->
 
-      <div class="container text-light text-center m-2" id="volume-indicators">
-        <label>Mic Volume</label>
-        <div id="input-volume"></div>
-        <br /><br />
-        <label>Speaker Volume</label>
-        <div id="output-volume"></div>
+      <div
+        class="container text-light mt-4 ml-auto mr-auto p-2"
+        id="volume-indicators"
+      >
+        <p><strong>Volume:</strong></p>
+        <div>
+          <label class="inline">Mic</label>
+          <div class="inline" id="input-volume"></div>
+        </div>
+        <div>
+          <label class="inline">Speaker</label>
+          <div class="inline" id="output-volume"></div>
+        </div>
       </div>
 
       <!-- Log Messages Container -->

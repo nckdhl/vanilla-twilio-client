@@ -63,7 +63,7 @@ window.addEventListener("load", function() {
   };
 
   const setClientNameUI = name => {
-    clientName.innerHTML = "Your client name: <strong>" + name + "</strong>";
+    clientName.innerHTML = "Welcome back <strong>" + name + "</strong>";
   };
 
   const toggleHangUpButton = () => {
