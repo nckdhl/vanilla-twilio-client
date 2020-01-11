@@ -22,7 +22,9 @@ window.addEventListener("load", function() {
   let calling = true;
   let twilioDevice;
 
-  fetch("http://828f5597.ngrok.io/auth/validation", {
+  console.log(this.localStorage.getItem("authToken"));
+
+  fetch("https://vanilla-twilio.herokuapp.com/auth/validation", {
     method: "POST",
     credentials: "include",
     headers: {
@@ -48,6 +50,8 @@ window.addEventListener("load", function() {
     .then(function(data) {
       console.log(data);
     });
+
+    console.log(this.localStorage.getItem("authToken"));
 
   /**
    * Adds a message to the log container in <p> tags
@@ -134,7 +138,7 @@ window.addEventListener("load", function() {
     callControlContainer.style.display = "inherit";
     logger.style.display = "inherit";
 
-    const url = "http://828f5597.ngrok.io/twilio/token";
+    const url = "https://vanilla-twilio.herokuapp.com/twilio/token";
     const params = JSON.stringify({
       authToken: localStorage.getItem("authToken")
     });

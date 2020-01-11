@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Twilio Client Quickstart</title>
+    <title>Twilio Client</title>
     <script
       type="text/javascript"
       src="//media.twiliocdn.com/sdk/js/client/v1.7/twilio.min.js"
@@ -17,65 +17,78 @@
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-light bg-light">
-      <span class="navbar-brand mb-0 h1">TwilioClient</span>
+    <nav class="navbar navbar-light bg-secondary">
+      <span class="navbar-brand mb-0 text-light h1">TwilioClient</span>
     </nav>
 
-    <!-- Information -->
-    <div class="container w-50" id="info">
-      <div id="client-name"></div>
-      <div id="output-selection">
-        <label>Ringtone Devices</label>
-        <select id="ringtone-devices" class="form-control" multiple></select>
-        <label>Speaker Devices</label>
-        <select id="speaker-devices" class="form-control" multiple></select
-        ><br />
-        <a id="get-devices">Not seeing all your devices?</a>
-      </div>
-    </div>
+    <!-- Interface Container -->
+    <div class="container pb-3 pt-2 mt-3 rounded-lg bg-dark">
 
-    <!-- Ready button -->
-    <div class="container text-center">
-      <button class="btn m-3 btn-block btn-outline-secondary" id="readyButton">
-        Press to initialize the dialer
-      </button>
-    </div>
-
-    <!-- Call Input and Button -->
-    <div class="container text-center w-50 mt-4" id="call-control-container">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button" id="call-btn">
-            Call
-          </button>
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            id="hangup-btn"
-          >
-            Hangup
-          </button>
+      <!-- Information -->
+      <div class="container w-50" id="info">
+        <div id="client-name"></div>
+        <div id="output-selection">
+          <label>Ringtone Devices</label>
+          <select id="ringtone-devices" class="form-control" multiple></select>
+          <label>Speaker Devices</label>
+          <select id="speaker-devices" class="form-control" multiple></select
+          ><br />
+          <a id="get-devices">Not seeing all your devices?</a>
         </div>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter number to call - i.e. +12896893069"
-          id="number-input"
-        />
       </div>
+
+      <!-- Ready button -->
+      <div class="container text-center">
+        <button
+          class="btn m-3 btn-block btn-primary"
+          id="readyButton"
+        >
+          Press to initialize the dialer
+        </button>
+      </div>
+
+      <!-- Call Input and Button -->
+      <div class="container text-center w-50 mt-4" id="call-control-container">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button
+              class="btn btn-success"
+              type="button"
+              id="call-btn"
+            >
+              Call
+            </button>
+            <button
+              class="btn btn-warning"
+              type="button"
+              id="hangup-btn"
+            >
+              Hangup
+            </button>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter number to call - i.e. +12896893069"
+            id="number-input"
+          />
+        </div>
+      </div>
+
+      <!-- Volume Indicators -->
+
+      <div class="container text-center m-2" id="volume-indicators">
+        <label>Mic Volume</label>
+        <div id="input-volume"></div>
+        <br /><br />
+        <label>Speaker Volume</label>
+        <div id="output-volume"></div>
+      </div>
+
+      <!-- Log Messages Container -->
+      <div class="container text-light" id="log"></div>
+
     </div>
-
-    <!-- Volume Indicators -->
-
-    <div class="container m-2" id="volume-indicators">
-      <label>Mic Volume</label>
-      <div id="input-volume"></div><br/><br/>
-      <label>Speaker Volume</label>
-      <div id="output-volume"></div>
-    </div>
-
-    <!-- Log Messages Container -->
-    <div class="container" id="log"></div>
 
     <!-- Incoming Call Modal -->
     <div
