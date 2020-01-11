@@ -111,21 +111,21 @@ window.addEventListener("load", function() {
 
   function bindVolumeIndicators(connection) {
     connection.volume(function(inputVolume, outputVolume) {
-      let inputColor = "red";
+      let inputColor = "#d9534f"; // bootstrap red
       if (inputVolume < 0.5) {
-        inputColor = "green";
+        inputColor = "#5cb85c"; // bootstrap green
       } else if (inputVolume < 0.75) {
-        inputColor = "yellow";
+        inputColor = "#f0ad4e"; // bootstrap yellow
       }
 
       inputVolumeBar.style.width = Math.floor(inputVolume * 300) + "px";
       inputVolumeBar.style.background = inputColor;
 
-      let outputColor = "red";
+      let outputColor = "#d9534f";
       if (outputVolume < 0.5) {
-        outputColor = "green";
+        outputColor = "#5cb85c";
       } else if (outputVolume < 0.75) {
-        outputColor = "yellow";
+        outputColor = "#f0ad4e";
       }
 
       outputVolumeBar.style.width = Math.floor(outputVolume * 300) + "px";

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Twilio Client</title>
+    <title>Vanilla VOIP</title>
     <script
       type="text/javascript"
       src="//media.twiliocdn.com/sdk/js/client/v1.7/twilio.min.js"
@@ -13,19 +13,22 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/globalstyles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png" />
+    <link rel="manifest" href="/assets/images/site.webmanifest" />
   </head>
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-light bg-secondary">
-      <span class="navbar-brand mb-0 text-light h1">TwilioClient</span>
+    <nav class="navbar navbar-light p-0 bg-dark">
+      <span class="navbar-brand brand ml-3 mb-0 text-light h1">Vanilla</span>
     </nav>
 
     <!-- Interface Container -->
-    <div class="container pb-3 pt-2 mt-3 rounded-lg bg-dark">
-
+    <div id="interface" class="container shadow-lg w-50 mt-4 pt-1 pb-4 bg-dark">
       <!-- Information -->
-      <div class="container w-50" id="info">
+      <div class="container text-light w-50" id="info">
         <div id="client-name"></div>
         <div id="output-selection">
           <label>Ringtone Devices</label>
@@ -38,31 +41,20 @@
       </div>
 
       <!-- Ready button -->
-      <div class="container text-center">
-        <button
-          class="btn m-3 btn-block btn-primary"
-          id="readyButton"
-        >
+      <div class="container w-100 text-center">
+        <button class="btn mr-4 mt-3 btn-block btn-success" id="readyButton">
           Press to initialize the dialer
         </button>
       </div>
 
       <!-- Call Input and Button -->
-      <div class="container text-center w-50 mt-4" id="call-control-container">
+      <div class="container text-center mt-4" id="call-control-container">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <button
-              class="btn btn-success"
-              type="button"
-              id="call-btn"
-            >
+            <button class="btn btn-success" type="button" id="call-btn">
               Call
             </button>
-            <button
-              class="btn btn-warning"
-              type="button"
-              id="hangup-btn"
-            >
+            <button class="btn btn-warning" type="button" id="hangup-btn">
               Hangup
             </button>
           </div>
@@ -77,7 +69,7 @@
 
       <!-- Volume Indicators -->
 
-      <div class="container text-center m-2" id="volume-indicators">
+      <div class="container text-light text-center m-2" id="volume-indicators">
         <label>Mic Volume</label>
         <div id="input-volume"></div>
         <br /><br />
@@ -87,7 +79,6 @@
 
       <!-- Log Messages Container -->
       <div class="container text-light" id="log"></div>
-
     </div>
 
     <!-- Incoming Call Modal -->
@@ -123,6 +114,15 @@
         </div>
       </div>
     </div>
+
+    <footer class="footer bg-dark d-flex justify-content-end">
+      <a href="https://www.netlify.com">
+        <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"/>
+      </a>
+      <a href="https://www.heroku.com">
+        <img class="heroku-banner p-0" src="/assets/images/built-on-heroku-light.svg">
+      </a>
+    </footer>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
