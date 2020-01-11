@@ -184,7 +184,8 @@ window.addEventListener("load", function() {
         // Show audio selection UI if it is supported by the browser.
         if (twilioDevice.audio.isOutputSelectionSupported) {
           console.log("Audio selection is supported");
-          document.getElementById("output-selection").style.display = "block";
+          //document.getElementById("output-selection").style.display = "block";
+          document.getElementById("output-selection").className = "d-flex justify-content-between";       
         }
 
         twilioDevice.on("ready", device => {
