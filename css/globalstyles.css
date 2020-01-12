@@ -110,7 +110,15 @@ body {
 
 @media (max-width: 576px) {
   html {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+  }
+
+  #volume-indicators {
+    width: 90%;
+  }
+
+  #client-name {
+    display: none;
   }
 
 }
