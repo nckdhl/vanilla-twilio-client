@@ -15,9 +15,6 @@ body {
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-image: url("../assets/images/vintage-phones-resize.jpg");
-  background-size: auto;
-  background-repeat: no-repeat;
 }
 
 .form-signin {

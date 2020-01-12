@@ -107,3 +107,18 @@ body {
   text-indent: -1.25em;
   width: 90%;
 }
+
+@media (max-width: 576px) {
+  html {
+    font-size: 1.4rem;
+  }
+
+}
+
+@media (min-width: 576px) {
+  #interface {
+    width: 50%;
+  }
+  
+}
+
