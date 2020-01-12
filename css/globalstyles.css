@@ -121,6 +121,14 @@ body {
     display: none;
   }
 
+  #output-selection {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+
 }
 
 @media (min-width: 576px) {
