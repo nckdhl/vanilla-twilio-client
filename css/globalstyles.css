@@ -110,7 +110,7 @@ body {
 
 @media (max-width: 576px) {
   html {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   #volume-indicators {
@@ -118,14 +118,6 @@ body {
   }
 
   #client-name {
-    display: none;
-  }
-
-  #output-selection {
-    display: none;
-  }
-
-  .footer {
     display: none;
   }
 
