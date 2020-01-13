@@ -15,6 +15,7 @@ window.addEventListener("load", function() {
   const callControlContainer = document.querySelector(
     "#call-control-container"
   );
+  const logOutButton = document.querySelector("#logout-btn");
   const incomingCallModal = document.querySelector("#incoming-call-modal");
   const answerCallButton = document.querySelector("#answer-button");
   const dismissCallButton = document.querySelector("#dismiss-button");
@@ -272,6 +273,11 @@ window.addEventListener("load", function() {
     //toggleHangUpButton();
     twilioDevice.disconnectAll();
   });
+
+  logOutButton.addEventListener("click", () => {
+    localStorage.removeItem("authToken");
+    window.location.replace("/");
+  })
 
   speakerDevices.addEventListener("change", function() {
     console.log("Speaker device set..");

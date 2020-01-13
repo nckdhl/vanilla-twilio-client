@@ -18,7 +18,6 @@ window.addEventListener("load", () => {
                 password: passwordInput.value
             });
 
-
             // AJAX call to send login credentials to database
             // returns true and redirects to main.php if the login was successful and
             // false if it was not, which then causes validity popup on input field
